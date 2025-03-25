@@ -10,7 +10,7 @@ trip count.
     tota|_trips
     avg_fare_per_km
     avg_fare_per_trip
-    pct_contribution_of_total_trips */
+    pct_contribution_of_total_trips 
 
 
 ```sql
