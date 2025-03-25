@@ -418,4 +418,3 @@ ORDER BY
     WHEN month = 'Total' THEN 1 ELSE 0 END
 ;
 
-
