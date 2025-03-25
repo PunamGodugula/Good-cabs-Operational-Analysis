@@ -48,51 +48,33 @@ Additionally, calculate the % difference between actual and target trips to quan
 
 
 ```sql
-WITH trips_actual AS
-  (SELECT
-    city_id,
-        DATE_FORMAT(date, '%Y-%m-01') AS start_of_month,
-    COUNT(trip_id) AS actual_trips
-  FROM trips_db.fact_trips
-    GROUP BY city_id, start_of_month),
+WITH target AS(
+         SELECT MONTHNAME(month) AS month_name,
+                 city_id,
+                 total_target_trips AS target_trips
+          FROM targets_db.monthly_target_trips
+                ),
+actuals AS (
+            SELECT ciy_id,
+                   MONTHNAME(month) AS month_name,
+                  COUNT(trip_id) AS actual_trips
+             FROM fact_trips
+            GROUP BY city_id
+)
 
-dim_date_monthly AS
-  (SELECT
-    start_of_month,
-    month_name
-  FROM
-    trips_db.dim_date
-  GROUP BY
-    start_of_month, month_name)
-        
-SELECT
-  dim_city.city_name,
-    dim_date_monthly.month_name,
-    COALESCE(trips_actual.actual_trips, 0) AS actual_trips,
-    COALESCE(trip_targets.total_target_trips, 0) AS target_trips,
-    CASE
-    WHEN COALESCE(trips_actual.actual_trips, 0) > COALESCE(trip_targets.total_target_trips, 0) THEN "Above Target"
-        ELSE "Below Target" 
-  END AS performance_status,
-    CASE
-        WHEN COALESCE(trip_targets.total_target_trips, 0) > 0 THEN 
-           ROUND((COALESCE(trips_actual.actual_trips,0) - COALESCE(trip_targets.total_target_trips,0))* 100 / COALESCE(trip_targets.total_target_trips, 0), 2)
-        ELSE 
-            NULL
-    END AS percentage_difference
-    
-FROM
-  dim_date_monthly
-    LEFT JOIN
-    trips_actual ON dim_date_monthly.start_of_month = trips_actual.start_of_month
-  LEFT JOIN 
-    trips_db.dim_city ON dim_city.city_id = trips_actual.city_id
-    LEFT JOIN
-    targets_db.monthly_target_trips AS trip_targets ON trips_actual.start_of_month = trip_targets.month
-        AND trips_actual.city_id = trip_targets.city_id
-        
-ORDER BY
-  dim_city.city_name, dim_date_monthly.start_of_month;
+SELECT c.city_name,
+       a.month_name,
+       a.actual_trips,
+       t.target_trips,
+      CASE WHEN actual_trips - target_trips > 0 THEN "Above Target" ELSE "Below Target" END AS "performance_status"
+      ROUND(100*(a.actual_trips-target_trips)/target_trips,2) AS "pct_difference"
+FROM actual a
+JOIN target t
+ON a.city_id = t.city_id
+AND a.month_name = t.month_name
+JOIN dim_city c
+ON a.city_id = t.city_id
+ORDER BY city_name, month_name ;        
 ```
 
 
