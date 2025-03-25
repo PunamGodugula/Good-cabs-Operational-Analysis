@@ -1,4 +1,4 @@
-/* Business Request - 1: City—Level Fare and Trip Summary Report
+ Business Request - 1: City—Level Fare and Trip Summary Report
 
 Generate a report that displays the total trips, average fare per km, average fare per trip, and the percentage contribution of each city’s
 trips to the overall trips. This report will help in assessing trip volume, pricing efficiency, and each city’s contribution to the overall
@@ -118,7 +118,7 @@ ORDER BY
 
 
 
-/* Business Request - 3: City-Level Repeat Passenger Trip Frequency Report
+ Business Request - 3: City-Level Repeat Passenger Trip Frequency Report
 
 Generate a report that shows the percentage distribution of repeat passengers by the number of trips they have taken in each city.
 Calculate the percentage of repeat passengers who took 2 trips, 3 trips, and so on, up to 10 trips.
@@ -131,7 +131,7 @@ This report will help identify cities with high repeat trip frequency, which can
   Fields: city_name, 2-Trips, 3-Trips, 4-Trips, 5-Trips, 6-Trips, 7-Trips, 8-Trips, 9-Trips, 10-Trips  */
 
 
-
+```sql
 WITH trips AS (
     SELECT
         dim_city.city_id AS city_id,
@@ -180,11 +180,11 @@ FROM
     total_trips ON dim_city.city_id = total_trips.city_id
     
 ORDER BY dim_city.city_name;
+```
 
 
 
-
-/* Business Request - 4: Identify Cities with Highest and Lowest Total New Passengers
+ Business Request - 4: Identify Cities with Highest and Lowest Total New Passengers
 
 Generate a report that calculates the total new passengers for each city and ranks them based on this value. Identify the top 3 cities with
 the highest number of new passengers as well as the bottom 3 cities with the lowest number of new passengers, categorising them as "Top 3"
@@ -197,7 +197,7 @@ or "Bottom 3" accordingly.
     city_category ("Top 3" or "Bottom 3")  */
 
 
-
+```sql
 WITH rank_cte AS
   (SELECT
     dim_city.city_id,
@@ -225,7 +225,7 @@ FROM
     JOIN
     rank_cte ON dim_city.city_id = rank_cte.city_id
 ORDER BY total_new_passengers DESC;
-
+```
 
 
 
@@ -242,7 +242,7 @@ for that month, and the percentage contribution of that month’s revenue to the
     percentage_contribution (%)  */
 
 
-
+```sql
 WITH unique_month AS (
   SELECT DISTINCT 
     start_of_month,
@@ -296,7 +296,7 @@ WHERE
   fare_month_city._rank = 1
     
 ORDER BY revenue DESC;
-
+```
 
 
 
@@ -320,7 +320,7 @@ These metrics will provide insights into monthly repeat trends as well as the ov
     city_repeat_passenger_rate (%): Overall repeat passenger rate for each city, aggregated across months */
 
 
-
+```sql
 WITH date_cte AS (
     SELECT DISTINCT
         start_of_month,
@@ -417,4 +417,4 @@ ORDER BY
     CASE
     WHEN month = 'Total' THEN 1 ELSE 0 END
 ;
-
+```
