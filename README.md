@@ -43,19 +43,23 @@ This repository contains resources for analyzing and improving Goodcabs' operati
 
 ## 🏠 Login Page
 
-![Login Page](https://github.com/Pravesh-Agarwal/Goodcabs-Operations-Analysis/blob/main/Resources/BI%20Dashboard/Images/Login%20Page.png)
+![Login Page](https://github.com/PunamGodugula/Good-cabs-Operational-Analysis/blob/main/Powerbi%20dashboard/1.%20Home%20Page.png)
 
 ## 📊 Executive Dashboard
 
-![Executive Dashboard](https://github.com/Pravesh-Agarwal/Goodcabs-Operations-Analysis/blob/main/Resources/BI%20Dashboard/Images/Executive%20Dashboard.png)
+![Executive Dashboard](https://github.com/PunamGodugula/Good-cabs-Operational-Analysis/blob/main/Powerbi%20dashboard/2.%20Executive%20Dashboard.png)
 
-## 🏙️ City Dashboard
+## 🏙️ Operational Dashboard
 
-![City Dashboard](https://github.com/Pravesh-Agarwal/Goodcabs-Operations-Analysis/blob/main/Resources/BI%20Dashboard/Images/City%20Dashboard.png)
+![Operational Dashboard](https://github.com/PunamGodugula/Good-cabs-Operational-Analysis/blob/main/Powerbi%20dashboard/3.%20Operational%20Analysis.png)
 
 ## 👨‍👩‍👧 Passenger Dashboard
 
-![Passenger Dashboard](https://github.com/Pravesh-Agarwal/Goodcabs-Operations-Analysis/blob/main/Resources/BI%20Dashboard/Images/Passenger%20Dashboard.png)
+![Passenger Dashboard](https://github.com/PunamGodugula/Good-cabs-Operational-Analysis/blob/main/Powerbi%20dashboard/4.%20Passengers%20Analysis.png)
+
+## 🎯 Target Dashboard
+
+![Target Dashboard](https://github.com/PunamGodugula/Good-cabs-Operational-Analysis/blob/main/Powerbi%20dashboard/5.%20Target%20Analysis.png)
 
 ## 💡 Key Insights
 
