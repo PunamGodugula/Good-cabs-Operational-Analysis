@@ -66,9 +66,4 @@ This repository contains resources for analyzing and improving Goodcabs' operati
 * **Seasonal Trends:** Trips peaked in February and March, declining steadily afterwards, but Repeat Passenger loyalty increased during off-peak months.
 
 ## 📎 Links
-
-### 💼 [Linkedin Post](https://www.linkedin.com/posts/pravesh-agarwal27_rpc13-codebasics-codebasicsresumeprojectchallenge-activity-7281602955978420224-dEcn?utm_source=share&utm_medium=member_desktop)
-
-### 📊 [Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiZmY4ZWVjZWItYWQ1MC00ODliLThhZjAtOWYxYjZhMWEzZjU2IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=7215aff20df6b576b6e5)
-
-### 🖥️ [Presentation](https://youtu.be/eE4uxsI4Juw)
+### 📊 [Live Dashboard](https://app.powerbi.com/view?r=eyJrIjoiYmEzM2Q1NDAtMDc5NC00ZTZiLTlkOWQtNWMxYTA3NmUwOWIwIiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9&pageName=7745717db5da73761e67)
